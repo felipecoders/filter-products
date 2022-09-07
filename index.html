@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter products</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css" />
+  </head>
+  <body class="bg-slate-200">
+    <header class="w-full flex p-4 bg-white">
+      <div class="flex-1">
+        <figure>
+          <span class="text-xl font-bold text-indigo-700">My company</span>
+        </figure>
+      </div>
+
+      <div class="grow flex flex-col px-4">
+        <span>Busque seu produto</span>
+        <div class="flex-1 flex mt-2 relative">
+          <input
+            type="text"
+            class="flex-1 h-8 rounded-full shadow border outline-none px-4 text-slate-600"
+          />
+          <button
+            type="button"
+            class="w-8 h-8 rounded-full text-indigo-700 bg-white shadow border hover:bg-indigo-700 hover:text-white right-0 top-0 absolute"
+          >
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex-1 flex items-center justify-end">
+        <button
+          type="button"
+          class="w-8 h-8 rounded-full text-slate-600 bg-white
+            hover:bg-indigo-700 hover:text-white relative"
+        >
+          <i class="fa fa-cart-shopping"></i>
+          <span
+            class="w-4 h-4 bg-red-700 text-white rounded-full text-xs
+              flex items-center justify-center
+              right-0 top-0 absolute"
+          >
+            0
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <main class="w-4/5 mx-auto mt-4 flex items-streach">
+      <!--#region filters-->
+      <aside class="w-64 h-full p-4 flex flex-col items-streach">
+        <div
+          class="p-4 bg-white flex items-center justify-between rounded-md shadow-xl"
+        >
+          <label class="text-lg font-semibold" for="is-off-sellers"
+            >Promoções</label
+          >
+          <input type="checkbox" name="is-off-sellers" id="is-off-sellers" />
+        </div>
+
+        <div
+          class="p-4 mt-4 bg-white flex items-center justify-between rounded-md shadow-xl"
+        >
+          <label class="text-lg font-semibold" for="free-delivery"
+            >Entrega grátis</label
+          >
+          <input type="checkbox" name="free-delivery" id="free-delivery" />
+        </div>
+
+        <!--#region Marcas-->
+        <div class="mt-4">
+          <span class="text-lg">Marcas</span>
+          <div class="flex flex-col py-2 pl-4">
+            <label for="a" class="flex items-center">
+              <input type="checkbox" name="a" id="a" />
+              <span class="text-sm ml-2">Marca A</span>
+            </label>
+            <label for="b" class="flex items-center">
+              <input type="checkbox" name="b" id="b" />
+              <span class="text-sm ml-2">Marca B</span>
+            </label>
+          </div>
+        </div>
+        <!--#endregion-->
+
+        <!--#region product status-->
+        <div class="mt-4">
+          <span class="text-lg">Condição</span>
+          <div class="flex flex-col py-2 pl-4">
+            <label for="new" class="flex items-center">
+              <input type="checkbox" name="new" id="new" />
+              <span class="text-sm ml-2">Novo</span>
+            </label>
+            <label for="semi-new" class="flex items-center">
+              <input type="checkbox" name="semi-new" id="semi-new" />
+              <span class="text-sm ml-2">Semi novo</span>
+            </label>
+            <label for="used" class="flex items-center">
+              <input type="checkbox" name="used" id="used" />
+              <span class="text-sm ml-2">Usado</span>
+            </label>
+          </div>
+        </div>
+        <!--#endregion-->
+
+        <!--#region category-->
+        <div class="mt-4">
+          <span class="text-lg">Categorias</span>
+          <div class="flex flex-col py-2 pl-4">
+            <label for="game" class="flex items-center">
+              <input type="checkbox" name="game" id="game" />
+              <span class="text-sm ml-2">Game</span>
+            </label>
+            <label for="keyboard" class="flex items-center">
+              <input type="checkbox" name="keyboard" id="keyboard" />
+              <span class="text-sm ml-2">Teclados</span>
+            </label>
+            <label for="headset" class="flex items-center">
+              <input type="checkbox" name="headset" id="headset" />
+              <span class="text-sm ml-2">Headset</span>
+            </label>
+            <label for="graphic-board" class="flex items-center">
+              <input type="checkbox" name="graphic-board" id="graphic-board" />
+              <span class="text-sm ml-2">Placa de video</span>
+            </label>
+          </div>
+        </div>
+        <!--#endregion-->
+
+        <!--#region category-->
+        <div class="mt-4">
+          <span class="text-lg">Preços</span>
+          <div class="flex items-center py-2 px-4">
+            <input
+              class="w-20 rounded-sm shadow pl-2 text-slate-600 outline-none"
+              type="number"
+              placeholder="0"
+            />
+            <span class="px-2">à</span>
+            <input
+              class="w-20 rounded-sm shadow pl-2 text-slate-600 outline-none"
+              type="number"
+              placeholder="2000"
+            />
+          </div>
+        </div>
+        <!--#endregion-->
+      </aside>
+      <!--#endregion-->
+
+      <!--#region products list-->
+      <section class="flex-1 p-4 grid grid-cols-3 gap-4">
+        <div class="p-4 shadow-xl bg-white">...</div>
+        <div class="p-4 shadow-xl bg-white">...</div>
+        <div class="p-4 shadow-xl bg-white">...</div>
+      </section>
+      <!--#endregion-->
+    </main>
+  </body>
+</html>
