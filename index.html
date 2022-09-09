@@ -8,7 +8,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
   </head>
   <body class="bg-slate-200">
     <header class="w-full flex p-4 bg-white">
@@ -37,14 +37,11 @@
       <div class="flex-1 flex items-center justify-end">
         <button
           type="button"
-          class="w-8 h-8 rounded-full text-slate-600 bg-white
-            hover:bg-indigo-700 hover:text-white relative"
+          class="w-8 h-8 rounded-full text-slate-600 bg-white hover:bg-indigo-700 hover:text-white relative"
         >
           <i class="fa fa-cart-shopping"></i>
           <span
-            class="w-4 h-4 bg-red-700 text-white rounded-full text-xs
-              flex items-center justify-center
-              right-0 top-0 absolute"
+            class="w-4 h-4 bg-red-700 text-white rounded-full text-xs flex items-center justify-center right-0 top-0 absolute"
           >
             0
           </span>
@@ -52,11 +49,11 @@
       </div>
     </header>
 
-    <main class="w-4/5 mx-auto mt-4 flex items-streach">
+    <main class="w-full xl:w-4/5 mx-auto mt-4 flex items-streach">
       <!--#region filters-->
       <aside class="w-64 h-full p-4 flex flex-col items-streach">
         <div
-          class="p-4 bg-white flex items-center justify-between rounded-md shadow-xl"
+          class="p-4 bg-white flex items-center justify-between rounded-md hover:shadow-xl"
         >
           <label class="text-lg font-semibold" for="is-off-sellers"
             >Promoções</label
@@ -65,7 +62,7 @@
         </div>
 
         <div
-          class="p-4 mt-4 bg-white flex items-center justify-between rounded-md shadow-xl"
+          class="p-4 mt-4 bg-white flex items-center justify-between rounded-md hover:shadow-xl"
         >
           <label class="text-lg font-semibold" for="free-delivery"
             >Entrega grátis</label
@@ -155,10 +152,40 @@
       <!--#endregion-->
 
       <!--#region products list-->
-      <section class="flex-1 p-4 grid grid-cols-3 gap-4">
-        <div class="p-4 shadow-xl bg-white">...</div>
-        <div class="p-4 shadow-xl bg-white">...</div>
-        <div class="p-4 shadow-xl bg-white">...</div>
+      <section class="flex-1 p-4">
+        <div class="grid grid-cols-3 gap-4">
+          <div class="p-4 bg-white rounded-md hover:shadow-xl cursor-pointer">
+            <figure>
+              <img src="/assets/images/graphic-card-evga-3080-ti.jpg" alt="img 1" />
+            </figure>
+
+            <div class="py-2 flex flex-col">
+              <strong>Nome do produto</strong>
+              <div class="py-2">
+                <div class="text-xs">
+                  <span class="text-slate-600 line-through">R$ 6.200,00</span>
+                  <span class="text-green-600">15%</span>
+                </div>
+                <span class="text-2xl text-green-600">R$ 4.500,00</span>
+              </div>
+              <div>
+                <span class="text-sm text-green-600">
+                  Entrega grátis
+                  <span class="ml-2">
+                    <i class="fa-solid fa-truck-fast"></i>
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-xs text-slate-800">
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+                consectetur, adipisci velit...
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
       <!--#endregion-->
     </main>
