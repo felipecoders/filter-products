@@ -139,7 +139,7 @@ async function getProducts() {
     {
       id: 18,
       name: 'Headset Gamer Redragon Zeus X',
-      original_price: 289.89,
+      original_price: 589.89,
       price: 400.99,
       image_url: '/assets/images/headset-gamer-redragon-zeus-x.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',

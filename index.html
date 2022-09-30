@@ -9,6 +9,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+
+    <script src="./assets/js/products.js"></script>
+    <script src="./assets/js/utils.js"></script>
+    <script src="./assets/js/render-products.js"></script>
+    <script src="./assets/js/filter-products.js"></script>
+    <script src="./assets/js/main.js" defer></script>
   </head>
   <body class="bg-slate-200">
     <header class="w-full flex p-4 bg-white">
@@ -153,39 +159,7 @@
 
       <!--#region products list-->
       <section class="flex-1 p-4">
-        <div class="grid grid-cols-3 gap-4">
-          <div class="p-4 bg-white rounded-md hover:shadow-xl cursor-pointer">
-            <figure>
-              <img src="/assets/images/graphic-card-evga-3080-ti.jpg" alt="img 1" />
-            </figure>
-
-            <div class="py-2 flex flex-col">
-              <strong>Nome do produto</strong>
-              <div class="py-2">
-                <div class="text-xs">
-                  <span class="text-slate-600 line-through">R$ 6.200,00</span>
-                  <span class="text-green-600">15%</span>
-                </div>
-                <span class="text-2xl text-green-600">R$ 4.500,00</span>
-              </div>
-              <div>
-                <span class="text-sm text-green-600">
-                  Entrega grátis
-                  <span class="ml-2">
-                    <i class="fa-solid fa-truck-fast"></i>
-                  </span>
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <p class="text-xs text-slate-800">
-                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-                consectetur, adipisci velit...
-              </p>
-            </div>
-          </div>
-        </div>
+        <div class="grid grid-cols-3 gap-4" id="products-list"></div>
       </section>
       <!--#endregion-->
     </main>
