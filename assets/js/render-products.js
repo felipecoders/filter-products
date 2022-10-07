@@ -5,32 +5,24 @@
 
 class RenderProducts {
   constructor() {
+    this.events = {}
     this.target = document.getElementById('products-list')
   }
 
   render(products) {
-    //   <div class="py-2 flex flex-col">
-    //     <div>
-    //       <span class="text-sm text-green-600">
-    //         Entrega grátis
-    //         <span class="ml-2">
-    //           <i class="fa-solid fa-truck-fast"></i>
-    //         </span>
-    //       </span>
-    //     </div>
-    //   </div>
-
     const elements = products.map(product => {
       const element = createElement('div', {
-        class: 'p-4 bg-white rounded-md hover:shadow-xl cursor-pointer',
+        class:
+          'p-4 bg-white rounded-md hover:shadow-xl relative  overflow-hidden product-item',
       })
 
       const figure = createElement(
         'figure',
-        null,
+        { class: 'flex justify-center' },
         createElement('img', {
           src: product.image_url,
           alt: product.name,
+          class: 'h-full max-h-48'
         })
       )
       element.append(figure)
@@ -95,14 +87,37 @@ class RenderProducts {
       )
       element.append(footer)
 
-      element.onclick = () => {
+      const buttonAdd = createElement(
+        'button',
+        {
+          class:
+            'py-2 flex-1 flex items-center justify-center bg-indigo-700 ' +
+            'text-white rounded-md shadow-md font-bold cursor-pointer ' +
+            'hover:bg-indigo-900',
+        },
+        'Adicionar ao carrinho'
+      )
+      const buttonWrapper = createElement(
+        'div',
+        {
+          class:
+            'p-4 flex bg-white bottom-0 left-0 right-0 absolute button-wrapper',
+        },
+        buttonAdd
+      )
+      buttonWrapper.onclick = () => {
         this.events.onclick(product)
       }
+      element.append(buttonWrapper)
 
       return element
     })
 
     this.target.innerHTML = ''
     this.target.append(...elements)
+  }
+
+  on(event, fn) {
+    this.events[`on${event}`] = fn
   }
 }
