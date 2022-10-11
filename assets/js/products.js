@@ -1,3 +1,8 @@
+const PRODUCT_CONDITION = Object.freeze({
+  NEW: 'NEW',
+  SEMI: 'SEMI',
+})
+
 async function getProducts() {
   return [
     {
@@ -8,6 +13,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/graphic-card-evga-3080-ti.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'EVGA',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Placa de video',
     },
     {
       id: 2,
@@ -16,6 +24,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/graphic-card-evga-3080-ti.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'EVGA',
+      condition: PRODUCT_CONDITION.NEW,
+      category: 'Placa de video',
     },
     {
       id: 3,
@@ -24,6 +35,9 @@ async function getProducts() {
       price: 4500,
       image_url: '/assets/images/graphic-card-evga-3080-ti.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'EVGA',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Placa de video',
     },
     {
       id: 4,
@@ -32,6 +46,9 @@ async function getProducts() {
       price: 480,
       image_url: '/assets/images/keyboard.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Redgragon',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Teclado',
     },
     {
       id: 5,
@@ -40,6 +57,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/keyboard.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Redgragon',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Teclado',
     },
     {
       id: 6,
@@ -47,6 +67,9 @@ async function getProducts() {
       price: 480,
       image_url: '/assets/images/keyboard.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Redgragon',
+      condition: PRODUCT_CONDITION.NEW,
+      category: 'Teclado',
     },
     {
       id: 7,
@@ -55,6 +78,9 @@ async function getProducts() {
       price: 279.99,
       image_url: '/assets/images/headset-hyper-x.webp',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Hyper Fury',
+      condition: PRODUCT_CONDITION.NEW,
+      category: 'Headset',
     },
     {
       id: 8,
@@ -63,6 +89,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/headset-hyper-x.webp',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Hyper Fury',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Headset',
     },
     {
       id: 9,
@@ -70,6 +99,9 @@ async function getProducts() {
       price: 281.99,
       image_url: '/assets/images/headset-hyper-x.webp',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Hyper Fury',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Headset',
     },
     {
       id: 10,
@@ -78,6 +110,9 @@ async function getProducts() {
       price: 120,
       image_url: '/assets/images/game-the-witcher-iii.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Other',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Jogo',
     },
     {
       id: 11,
@@ -86,6 +121,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/game-the-witcher-iii.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Other',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Jogo',
     },
     {
       id: 12,
@@ -93,6 +131,9 @@ async function getProducts() {
       price: 124.99,
       image_url: '/assets/images/game-the-witcher-iii.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Other',
+      condition: PRODUCT_CONDITION.NEW,
+      category: 'Jogo',
     },
     {
       id: 13,
@@ -102,6 +143,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/graphic-card-msi-3090.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'MSI',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Placa de video',
     },
     {
       id: 14,
@@ -110,6 +154,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/graphic-card-msi-3090.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'MSI',
+      condition: PRODUCT_CONDITION.NEW,
+      category: 'Placa de video',
     },
     {
       id: 15,
@@ -118,6 +165,9 @@ async function getProducts() {
       price: 4499.99,
       image_url: '/assets/images/graphic-card-msi-3090.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'MSI',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Placa de video',
     },
     {
       id: 16,
@@ -127,6 +177,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/headset-gamer-redragon-zeus-x.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Redragon',
+      condition: PRODUCT_CONDITION.NEW,
+      category: 'Headset',
     },
     {
       id: 17,
@@ -135,6 +188,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/headset-gamer-redragon-zeus-x.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Redragon',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Headset',
     },
     {
       id: 18,
@@ -143,6 +199,9 @@ async function getProducts() {
       price: 400.99,
       image_url: '/assets/images/headset-gamer-redragon-zeus-x.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Redragon',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Headset',
     },
     {
       id: 19,
@@ -152,6 +211,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/teclado-corsair-k68-mecanico.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Corsair',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Teclado',
     },
     {
       id: 20,
@@ -160,6 +222,9 @@ async function getProducts() {
       is_free_delivery: true,
       image_url: '/assets/images/teclado-corsair-k68-mecanico.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Corsair',
+      condition: PRODUCT_CONDITION.SEMI,
+      category: 'Teclado',
     },
     {
       id: 21,
@@ -168,6 +233,9 @@ async function getProducts() {
       price: 1009.29,
       image_url: '/assets/images/teclado-corsair-k68-mecanico.jpg',
       description: 'Neque porro quisquam est qui dolorem ipsum quia dolor...',
+      brand: 'Corsair',
+      condition: PRODUCT_CONDITION.NEW,
+      category: 'Teclado',
     },
   ]
 }

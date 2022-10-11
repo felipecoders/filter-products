@@ -18,3 +18,9 @@ const format = new Intl.NumberFormat('pt-br', {
 function porcentBetween(original, current) {
   return Math.floor(((current - original) / original) * -100)
 }
+
+const strings = {
+  camelize(string) {
+    return string.charAt(0).toUpperCase() + string.substring(1).toLowerCase()
+  },
+}
