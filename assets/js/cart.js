@@ -1,7 +1,19 @@
-class Cart {
+class Cart extends Events {
   constructor() {
+    super()
+
     this.products = []
     this.badge = document.getElementById('badge')
+    this.reference = document.getElementById('button-open-cart')
+    this.cartListModal = new CartListModal()
+
+    this.reference.onclick = () => {
+      this.cartListModal.show(this.products)
+    }
+
+    this.reference.ondblclick = () => {
+      window.location.href = 'cart.html'
+    }
   }
 
   addProduct(product) {

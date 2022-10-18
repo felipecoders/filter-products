@@ -1,56 +1,31 @@
-class FilterProducts {
+class FilterProducts extends Events {
   constructor() {
+    super()
+
     this.filters = [
+      {
+        key: 'name',
+        input: [document.getElementById('product-name')]
+      },
       {
         key: 'is-off-sellers',
         input: [document.getElementById('is-off-sellers')],
-        check(product) {
-          return typeof product.original_price === 'number'
-        },
       },
       {
         key: 'is-free-delivery',
         input: [document.getElementById('is-free-delivery')],
-        check(product) {
-          return product.is_free_delivery === true
-        },
       },
       {
         key: 'brand',
         input: [],
-        check(product) {
-          const selected = Array.from(
-            document.querySelectorAll(`[data-brand]:checked`)
-          )
-          const finded = selected.find(brand => brand.name === product.brand)
-          return typeof finded !== 'undefined'
-        },
       },
       {
         key: 'condition',
         input: [],
-        check(product) {
-          const selected = Array.from(
-            document.querySelectorAll(`[data-condition]:checked`)
-          )
-          const finded = selected.find(
-            condition => condition.name === product.condition
-          )
-          return typeof finded !== 'undefined'
-        },
       },
       {
         key: 'category',
         input: [],
-        check(product) {
-          const selected = Array.from(
-            document.querySelectorAll(`[data-category]:checked`)
-          )
-          const finded = selected.find(
-            category => category.name === product.category
-          )
-          return typeof finded !== 'undefined'
-        },
       },
       {
         key: 'price',
@@ -58,15 +33,6 @@ class FilterProducts {
           document.querySelector('[name="min-price"]'),
           document.querySelector('[name="max-price"]'),
         ],
-        check(product) {
-          const min = document.querySelector('[name="min-price"]').value
-          const max = document.querySelector('[name="max-price"]').value
-
-          return (
-            (!min || product.price >= Number(min)) &&
-            (!max || product.price < Number(max))
-          )
-        },
       },
     ]
 
@@ -74,12 +40,8 @@ class FilterProducts {
   }
 
   async execute() {
-    const data = await getProducts()
-    return data
-  }
-
-  on(eventName, fn) {
-    this.events = { [eventName]: fn }
+    this.data = await getProducts()
+    return this.data
   }
 
   async render() {
@@ -118,15 +80,57 @@ class FilterProducts {
     this.filters.forEach(filter => {
       filter.input.forEach(input => {
         if (filter.key === 'price') {
-          input.oninput = () => this.filter(filter.key)
+          input.oninput = () => this.filter()
         } else {
-          input.onchange = () => this.filter(filter.key)
+          input.onchange = () => this.filter()
         }
       })
     })
+
+    document.getElementById('product-name-dispatcher').onclick = () => {
+      this.filter()
+    }
   }
 
-  filter(key) {
-    console.log(key)
+  filter() {
+    const filters = this.filters
+      .map(filter => {
+        const temp = { key: filter.key, values: [] }
+        filter.input
+          .map(input => {
+            if (input.type === 'checkbox') {
+              return input.checked ? input.getAttribute('name') : null
+            } else {
+              return input.value
+            }
+          })
+          .filter(value => (filter.key === 'price' ? true : !!value))
+          .forEach(value => {
+            temp.values.push(value)
+          })
+        return temp
+      })
+      .filter(filter => filter.values.length > 0)
+
+    const products = this.data.filter(product => {
+      return filters.every(filter => {
+        if (filter.key === 'is-free-delivery') {
+          return product.is_free_delivery
+        } else if (filter.key === 'is-off-sellers') {
+          return typeof product.original_price !== 'undefined'
+        } else if (filter.key === 'price') {
+          const min = filter.values[0] || 0
+          const max = filter.values[1] || Number.MAX_SAFE_INTEGER
+          return product.price >= min && product.price <= max
+        } else if(filter.key === 'name') {
+          const value = filter.values[0].trim().toLowerCase()
+          return product.name.toLowerCase().includes(value)
+        } else {
+          return filter.values.includes(product[filter.key])
+        }
+      })
+    })
+
+    this.emit('change', products)
   }
 }
