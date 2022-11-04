@@ -16,6 +16,7 @@
     <script src="./assets/js/events.js"></script>
     <script src="./assets/js/render-products.js"></script>
     <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/cart-list-modal.js"></script>
     <script src="./assets/js/filter-products.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
   </head>
@@ -47,19 +48,21 @@
       </div>
 
       <div class="flex-1 flex items-center justify-end">
-        <button
-          id="button-open-cart"
-          type="button"
-          class="w-8 h-8 rounded-full text-slate-600 bg-white hover:bg-indigo-700 hover:text-white relative"
-        >
-          <i class="fa fa-cart-shopping"></i>
-          <span
-            id="badge"
-            class="w-4 h-4 bg-red-700 text-white rounded-full text-xs flex items-center justify-center right-0 top-0 absolute"
+        <div class="relative">
+          <button
+            id="button-open-cart"
+            type="button"
+            class="w-8 h-8 rounded-full text-slate-600 bg-white hover:bg-indigo-700 hover:text-white relative"
           >
-            0
-          </span>
-        </button>
+            <i class="fa fa-cart-shopping"></i>
+            <span
+              id="badge"
+              class="w-4 h-4 bg-red-700 text-white rounded-full text-xs flex items-center justify-center right-0 top-0 absolute"
+            >
+              0
+            </span>
+          </button>
+        </div>
       </div>
     </header>
 

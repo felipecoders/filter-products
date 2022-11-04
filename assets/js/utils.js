@@ -2,7 +2,11 @@ function createElement(tag, attrs = {}, ...childrens) {
   const element = document.createElement(tag)
 
   for (let attr in attrs) {
-    element.setAttribute(attr, attrs[attr])
+    if (/^on[A-Z]{1}.*/.test(attr)) {
+      element[attr.toLowerCase()] = (e) => attrs[attr].call(element, e)
+    } else {
+      element.setAttribute(attr, attrs[attr])
+    }
   }
 
   element.append(...childrens)

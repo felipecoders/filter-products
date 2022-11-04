@@ -8,12 +8,18 @@ class Cart extends Events {
     this.cartListModal = new CartListModal()
 
     this.reference.onclick = () => {
-      this.cartListModal.show(this.products)
+      this.cartListModal.show()
     }
 
     this.reference.ondblclick = () => {
       window.location.href = 'cart.html'
     }
+
+    this.cartListModal.on('remove', product => {
+      this.removeProduct(product)
+    })
+
+    this.reference.parentElement.append(this.cartListModal.getElement())
   }
 
   addProduct(product) {
@@ -30,5 +36,6 @@ class Cart extends Events {
   updateBadge() {
     this.badge.innerHTML = this.products.length
     this.badge.hidden = this.products.length === 0
+    this.cartListModal.render(this.products)
   }
 }
