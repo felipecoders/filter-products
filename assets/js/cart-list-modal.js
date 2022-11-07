@@ -24,6 +24,7 @@ class CartListModal extends Events {
   }
 
   render(products) {
+    let total = 0
     const items = Object.entries(
       products.reduce((p, n) => {
         if (!p[n.id]) {
@@ -38,6 +39,7 @@ class CartListModal extends Events {
     )
       .map(([_, product]) => product)
       .map(product => {
+        total += product.amount * product.price
         const card = createElement(
           'li',
           {
@@ -101,8 +103,8 @@ class CartListModal extends Events {
       createElement(
         'footer',
         { class: 'pt-2 mt-2 border-t border-white flex justify-between' },
-        createElement('span', { class: 'text-xs' }, 'Total'),
-        createElement('strong', {}, format(0))
+        createElement('span', { class: 'text-xs text-gray-700' }, 'Total'),
+        createElement('strong', { class: 'text-lg text-green-600' }, format(total))
       )
     )
   }
